@@ -73,7 +73,8 @@ redirection() {
     && if [ $ANS = "y" ] 
     then
         FILE=$(find /etc/nginx/sites-enabled/*-nginx.conf) \
-        && sudo sed -i 's+server_name _;+server_name $server_name;\n\treturn 301 https://$server_name$request_uri;+g' $FILE
+        && LINE=$(grep --regex='server_name [a-zA-Z]' *-nginx.conf) \
+        && sudo sed -i 's+server_name _;+server_name '"$LINE"';\n\treturn 301 https://$server_name$request_uri;+g' $FILE
     fi
 }
 

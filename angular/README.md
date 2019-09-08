@@ -1,8 +1,8 @@
-### AUTO Deploy Angular porject on nginx server
+### AUTO Deploy Angular project on Nginx server
 
 It will install, build and configure all!
 
-## IMPORTANT NOTE: script will run `npm run build`. so change the `scripts -> build` in `package.json`.
+## IMPORTANT NOTE: The script will run `npm run build`. so change the `scripts -> build` in `package.json`.
 
 # Example:
 ```
@@ -13,7 +13,7 @@ It will install, build and configure all!
   }
 ```
 
-## directory tree must be like:
+## Directory tree must be like:
 
 ```
 

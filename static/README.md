@@ -1,7 +1,7 @@
-## AUTO Deploy static file on nginx server
+## AUTO Deploy static file on Nginx server
 
-It will install and configure all dependecies.
-directory tree must be like:
+It will install and configure all dependencies.
+Directory tree must be like:
 
 ```
 run-static.sh

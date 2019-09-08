@@ -81,8 +81,9 @@ build_project() {
 config_ufw() {
     echo_bold "Configuring ufw..." \
     && echo \
-    && sudo ufw enable \
-    && sudo ufw allow 'Nginx HTTP' \
+    && sudo yes | sudo ufw enable \
+    && sudo yes | sudo ufw allow 22 \
+    && sudo yes | sudo ufw allow 'Nginx HTTP' \
     && sudo ufw status \
     && echo_bold "ufw Configuration done Successfully!" \
     && echo_line \

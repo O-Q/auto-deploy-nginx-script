@@ -44,20 +44,21 @@ install_deps() {
 config_ufw() {
     echo_bold "Configuring ufw..." \
     && echo \
-    && sudo ufw enable \
-    && sudo ufw allow 'Nginx HTTP' \
+    && sudo yes | sudo ufw enable \
+    && sudo yes | sudo ufw allow 22 \
+    && sudo yes | sudo ufw allow 'Nginx HTTP' \
     && sudo ufw status \
     && echo_bold "ufw Configuration done Successfully!" \
     && echo_line \
     && echo
 }
-copy_angular_dist() {
+copy_static_dist() {
     echo "Enter project folder name(example: my-first-project):"
     read PROJECT_NAME
-    echo_bold "Copying dist files to '/var/www/angualr-deploy'..." \
-    && sudo rm -rf /var/www/angular-deploy \
-    && sudo mkdir /var/www/angular-deploy \
-    && sudo cp -r dist/$PROJECT_NAME/* /var/www/angular-deploy/ \
+    echo_bold "Copying dist files to '/var/www/static-deploy'..." \
+    && sudo rm -rf /var/www/static-deploy \
+    && sudo mkdir /var/www/static-deploy \
+    && sudo cp -r dist/$PROJECT_NAME/* /var/www/static-deploy/ \
     && echo_bold "Files copied Successfully!" \
     && echo_line \
     && echo
@@ -87,6 +88,6 @@ echo_title \
 && sudo yes | sudo apt update \
 && install_deps \
 && config_ufw \
-&& copy_angular_dist \
+&& copy_static_dist \
 && config_nginx \
 && nginx_status \

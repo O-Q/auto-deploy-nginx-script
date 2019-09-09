@@ -69,6 +69,7 @@ config_nginx(){
     && echo \
     && sudo sed -i 's+sites-enabled/\*+sites-enabled/\*.conf+g' /etc/nginx/nginx.conf \
     && sudo cp static-nginx.conf /etc/nginx/sites-enabled/ \
+    && sudo sed -i 's+# gzip_types+gzip_types+g' /etc/nginx/nginx.conf \
     && echo "Nginx restarting..." \
     && sudo systemctl restart nginx \
     && echo_bold "Nginx Configuration done Successfully!" \

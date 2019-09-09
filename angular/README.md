@@ -1,11 +1,12 @@
-### AUTO Deploy Angular project on Nginx server
+# Auto Angular Project Deployment
 
-It will install, build and configure all!
+Install all required dependencies (nginx, node, npm, @angular/cli, etc.), build project, and then deploy.
 
-## IMPORTANT NOTE: The script will run `npm run build`. so change the `scripts -> build` in `package.json`.
+## IMPORTANT NOTE: The script will run `npm run build`. so change the `scripts -> build` in `package.json`
 
-# Example:
-```
+Example:
+
+``` json
   "scripts": {
     ...
     "build": "ng build --prod --base-href /example",
@@ -13,16 +14,15 @@ It will install, build and configure all!
   }
 ```
 
-## Directory tree must be like:
+## Directory tree for Angular project
 
-```
-
-<PROJECT_FOLDER>
-    |
-    |_ run-angular.sh
-    |
-    |_ angular-nginx.conf
-    |
-    |_ YOUR FILES...
- 
+``` bash
+├── <PROJECT_FOLDER>
+│       │
+│       ├── run-angular.sh
+│       │
+│       ├── angular-nginx.conf
+│       │
+│       └── PROJECT FILES...
+│
 ```

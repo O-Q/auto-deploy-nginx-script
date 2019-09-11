@@ -24,7 +24,7 @@ install_dep() {
     if test $RESULT -ge 1; then
         echo "$(echo_bold $APP_NAME) is installed."
     else
-        sudo yes | sudo apt install $APP_NAME &&
+        sudo apt install -y $APP_NAME &&
             echo "$(echo_bold $APP_NAME) is installed."
     fi
 }
@@ -44,9 +44,9 @@ install_deps() {
 config_ufw() {
     echo_bold "Configuring ufw..." \
     && echo \
-    && sudo yes | sudo ufw enable \
-    && sudo yes | sudo ufw allow 22 \
-    && sudo yes | sudo ufw allow 'Nginx HTTP' \
+    && sudo ufw enable \
+    && sudo ufw allow 22 \
+    && sudo ufw allow 'Nginx HTTP' \
     && sudo ufw status \
     && echo_bold "ufw Configuration done Successfully!" \
     && echo_line \
@@ -86,7 +86,7 @@ nginx_status() {
 }
 
 echo_title \
-&& sudo yes | sudo apt update \
+&& sudo apt -y update \
 && install_deps \
 && config_ufw \
 && copy_static_dist \
